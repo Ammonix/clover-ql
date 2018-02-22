@@ -4,7 +4,7 @@ export const BoardType = new GraphQLObjectType({
   name: "Board",
   description: "A board",
   fields: () => ({
-    acronym: {
+    id: {
       type: GraphQLString,
       resolve: board => board.board
     },
