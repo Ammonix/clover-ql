@@ -15,7 +15,7 @@ export const QueryType = new GraphQLObjectType({
       args: {
         id: { type: GraphQLID }
       },
-      resolve: (root, args) => resolver.board(args.id)
+      resolve: (root, args) => resolver.board(args.id).toPromise()
     }
   })
 });
