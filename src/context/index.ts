@@ -1,9 +1,5 @@
-import loaders, { Loaders } from "./loaders";
-
-export interface Context {
-  loaders: Loaders;
-}
+import loaders from "./loaders";
 
 export default {
   loaders
-} as Context;
+};
