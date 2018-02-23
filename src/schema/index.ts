@@ -1,6 +1,6 @@
-// import { GraphQLSchema } from "graphql";
-// import { QueryType } from "./queryType";
+import { GraphQLSchema } from "graphql";
+import { QueryType } from "./queryType";
 
-// export default new GraphQLSchema({
-//   query: QueryType
-// });
+export default new GraphQLSchema({
+  query: QueryType
+});

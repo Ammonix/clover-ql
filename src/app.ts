@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as graphqlHTTP from "express-graphql";
-// import schema from "./schema";
+import schema from "./schema";
 class App {
   public express: express.Express;
   constructor() {
@@ -9,13 +9,13 @@ class App {
   }
   private configuration(): void {
     this.express.get("/", (req, res) => res.send("Hello World!"));
-    // this.express.use(
-    //   "/graphql",
-    //   graphqlHTTP({
-    //     schema: schema,
-    //     graphiql: true
-    //   })
-    // );
+    this.express.use(
+      "/graphql",
+      graphqlHTTP({
+        schema: schema,
+        graphiql: true
+      })
+    );
   }
 }
 

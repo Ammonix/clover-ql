@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-// import schema from "./schema";
+const graphqlHTTP = require("express-graphql");
+const schema_1 = require("./schema");
 class App {
     constructor() {
         this.express = express();
@@ -9,13 +10,10 @@ class App {
     }
     configuration() {
         this.express.get("/", (req, res) => res.send("Hello World!"));
-        // this.express.use(
-        //   "/graphql",
-        //   graphqlHTTP({
-        //     schema: schema,
-        //     graphiql: true
-        //   })
-        // );
+        this.express.use("/graphql", graphqlHTTP({
+            schema: schema_1.default,
+            graphiql: true
+        }));
     }
 }
 exports.default = new App().express;
