@@ -19,11 +19,12 @@
     "clover",
     "node",
     "express",
-    "tzpescript",
+    "rxjs",
+    "typescript",
     "javascript",
     "ts",
     "js",
-    "MIT"
+    "mit-license"
   ],
   "author": "ammonix <joan.kuenzler@gmail.com> (https://ammonix.ch)",
   "license": "MIT",
