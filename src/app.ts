@@ -8,6 +8,7 @@ class App {
     this.configuration();
   }
   private configuration(): void {
+    this.express.get("/", (req, res) => res.send("Hello World!"));
     this.express.use(
       "/graphql",
       graphqlHTTP({
