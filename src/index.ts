@@ -1,3 +1,4 @@
 import app from "./app";
-
-app.listen(4000);
+const port = process.env.PORT || 4000;
+app.listen(port);
+console.debug(`express runs on port ${port}`);
