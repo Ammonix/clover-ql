@@ -1,12 +1,10 @@
 import * as rm from "typed-rest-client/RestClient";
-import "rxjs/add/observable/fromPromise";
 import { Observable } from "rxjs/Observable";
+import { fromPromise } from "rxjs/Observable/fromPromise";
 import { map } from "rxjs/operators";
 const client = new rm.RestClient("4chan-rest-api", "https://a.4cdn.org");
 const get = <T>(resource: string): Observable<T> =>
-  Observable.fromPromise(client.get<T>(resource)).pipe(
-    map(response => response.result)
-  );
+  fromPromise(client.get<T>(resource)).pipe(map(response => response.result));
 
 class Resolver {
   public boards(): Observable<any[]> {
