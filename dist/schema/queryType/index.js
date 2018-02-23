@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const boardType_1 = require("./boardType");
 const graphql_1 = require("graphql");
 const resolver_1 = require("../../resolver");
-require("rxjs/add/observable/fromPromise");
 exports.QueryType = new graphql_1.GraphQLObjectType({
     name: "Query",
     description: "The root of all queries",
