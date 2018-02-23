@@ -4,7 +4,7 @@ import {
   GraphQLBoolean,
   GraphQLInt
 } from "graphql";
-import { CooldownsType } from "./cooldownsType";
+import { CooldownsType } from "./cooldowns.type";
 
 export const BoardType = new GraphQLObjectType({
   name: "Board",
