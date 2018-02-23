@@ -6,6 +6,7 @@ import {
   GraphQLList
 } from "graphql";
 import CooldownsType from "./cooldowns.type";
+import PostType from "./post.type";
 
 export default new GraphQLObjectType({
   name: "Board",
@@ -66,6 +67,10 @@ export default new GraphQLObjectType({
     isArchived: {
       type: GraphQLBoolean,
       resolve: board => board.is_archived
+    },
+    allThreads: {
+      type: new GraphQLList(PostType),
+      resolve: (root, args, { loaders }) => loaders.post.loadMany(root.board)
     }
   })
 });
