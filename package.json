@@ -4,9 +4,9 @@
   "description": "graphql api that wraps the 4chan REST api",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "SET NODE_ENV=development && nodemon",
-    "build": "rimraf dist && tsc"
+    "dev": "nodemon",
+    "start": "node dist",
+    "heroku-postbuild": "rimraf dist && tsc"
   },
   "repository": {
     "type": "git",
