@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as graphqlHTTP from "express-graphql";
 import schema from "./schema";
+import context from "./context";
 class App {
   public express: express.Express;
   constructor() {
@@ -12,7 +13,8 @@ class App {
     this.express.use(
       "/graphql",
       graphqlHTTP({
-        schema: schema,
+        context,
+        schema,
         graphiql: true
       })
     );

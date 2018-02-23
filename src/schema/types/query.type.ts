@@ -1,6 +1,6 @@
 import { GraphQLList, GraphQLObjectType, GraphQLID } from "graphql";
-import boardResolver from "../../resolvers/board.resolver";
 import { BoardType } from "./board.type";
+import boardService from "../../services/board.service";
 
 export const QueryType = new GraphQLObjectType({
   name: "Query",
@@ -8,14 +8,15 @@ export const QueryType = new GraphQLObjectType({
   fields: () => ({
     allBoards: {
       type: new GraphQLList(BoardType),
-      resolve: () => boardResolver.boards().toPromise()
+      description: "All boards on 4Chan.",
+      resolve: (root, args, { loaders }) => loaders.board.loadMany()
     },
     board: {
       type: BoardType,
       args: {
         id: { type: GraphQLID }
       },
-      resolve: (root, args) => boardResolver.board(args.id).toPromise()
+      resolve: (root, args, { loaders }) => loaders.board.load(args.id)
     }
   })
 });
