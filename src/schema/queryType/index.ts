@@ -1,6 +1,7 @@
 import { BoardType } from "./boardType";
 import { GraphQLList, GraphQLObjectType, GraphQLID } from "graphql";
 import resolver from "../../resolver";
+import "rxjs/add/observable/fromPromise";
 
 export const QueryType = new GraphQLObjectType({
   name: "Query",
