@@ -9,7 +9,7 @@ class App {
         this.configuration();
     }
     configuration() {
-        this.express.get("/", (req, res) => res.send("Hello World!"));
+        this.express.get("/", (req, res) => res.redirect("/graphql"));
         this.express.use("/graphql", graphqlHTTP({
             schema: schema_1.default,
             graphiql: true
