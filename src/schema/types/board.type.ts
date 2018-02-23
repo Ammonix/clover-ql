@@ -2,11 +2,12 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLBoolean,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLList
 } from "graphql";
-import { CooldownsType } from "./cooldowns.type";
+import CooldownsType from "./cooldowns.type";
 
-export const BoardType = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: "Board",
   description: "A board",
   fields: () => ({

@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLInt } from "graphql";
 
-export const CooldownsType = new GraphQLObjectType({
-  name: "cooldowns",
+export default new GraphQLObjectType({
+  name: "Cooldowns",
   description: "Default posting cooldowns in ms.",
   fields: () => ({
     threads: {
