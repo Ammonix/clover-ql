@@ -1,5 +1,9 @@
-import board from "./board.loader";
+import * as DataLoader from "dataloader";
+import boardsLoader from "./boards.loader";
+export interface Loaders {
+  boards: DataLoader<any, any>;
+}
 
 export default {
-  board
-};
+  boards: boardsLoader
+} as Loaders;
