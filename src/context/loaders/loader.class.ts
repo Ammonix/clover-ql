@@ -1,5 +1,6 @@
 export default class Loader {
-  constructor() {}
-  public load() {}
-  public loadMany() {}
+  constructor(
+    public load: Function = (): any => null,
+    public loadMany: Function = (): any => null
+  ) {}
 }
