@@ -171,7 +171,9 @@ export default new GraphQLObjectType({
     absoluteFilePath: {
       type: GraphQLString,
       resolve: (root, args, { loaders: { postLoader } }) =>
-        `https://i.4cdn.org/${root.boardId}/${root.tim}${root.ext}`
+        root.tim && root.ext
+          ? `https://i.4cdn.org/${root.boardId}/${root.tim}${root.ext}`
+          : null
     },
     since4pass: {
       type: GraphQLInt,
