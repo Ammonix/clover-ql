@@ -3,10 +3,12 @@ import {
   GraphQLString,
   GraphQLBoolean,
   GraphQLInt,
-  GraphQLList
+  GraphQLList,
+  GraphQLID
 } from "graphql";
 import CooldownsType from "./cooldowns.type";
 import PostType from "./post.type";
+import ThreadType from "./thread.type";
 
 export default new GraphQLObjectType({
   name: "Board",
@@ -69,7 +71,14 @@ export default new GraphQLObjectType({
       resolve: board => board.is_archived
     },
     allThreads: {
-      type: new GraphQLList(PostType),
+      type: new GraphQLList(ThreadType),
+      resolve: (root, args, { loaders }) => loaders.post.loadMany(root.board)
+    },
+    thread: {
+      type: ThreadType,
+      args: {
+        id: { type: GraphQLID }
+      },
       resolve: (root, args, { loaders }) => loaders.post.loadMany(root.board)
     }
   })
