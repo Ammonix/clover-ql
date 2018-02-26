@@ -15,13 +15,17 @@ export default new GraphQLObjectType({
       resolve: post => post.last_modified
     },
     allPosts: {
-      type: new GraphQLList(PostType)
+      type: new GraphQLList(PostType),
+      resolve: (root, args, { loaders: { postLoader } }) =>
+        postLoader.loadMany(root.postNumber)
     },
     post: {
       type: PostType,
       args: {
         id: { type: GraphQLID }
       },
+      resolve: (root, args, { loaders: { postLoader } }) =>
+        postLoader.load(args.id)
     }
   })
 });

@@ -1,7 +1,9 @@
-import board from "./board.loader";
-import post from "./post.loader";
+import boardLoader from "./board.loader";
+import postLoader from "./post.loader";
+import threadLoader from "./thread.loader";
 
 export default {
-  board,
-  post
+  boardLoader,
+  postLoader,
+  threadLoader
 };
