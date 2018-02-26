@@ -15,7 +15,7 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       resolve: post => post.boardId
     },
-    postNumber: {
+    threadNumber: {
       type: GraphQLInt,
       resolve: post => post.no
     },
