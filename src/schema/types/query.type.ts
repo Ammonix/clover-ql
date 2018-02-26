@@ -9,14 +9,16 @@ export default new GraphQLObjectType({
     allBoards: {
       type: new GraphQLList(BoardType),
       description: "All boards on 4Chan.",
-      resolve: (root, args, { loaders }) => loaders.board.loadMany()
+      resolve: (root, args, { loaders: { boardLoader } }) =>
+        boardLoader.loadMany()
     },
     board: {
       type: BoardType,
       args: {
         id: { type: GraphQLID }
       },
-      resolve: (root, args, { loaders }) => loaders.board.load(args.id)
+      resolve: (root, args, { loaders: { boardLoader } }) =>
+        boardLoader.load(args.id)
     }
   })
 });

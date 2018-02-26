@@ -33,11 +33,9 @@
   },
   "homepage": "https://github.com/ammonix/clover-ql#readme",
   "dependencies": {
-    "dataloader": "^1.4.0",
     "express": "^4.16.2",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.1",
-    "graphql-relay": "^0.5.4",
     "node": "^9.5.0",
     "node-fetch": "^2.0.0",
     "rimraf": "^2.6.2"

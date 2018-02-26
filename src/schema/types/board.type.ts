@@ -72,14 +72,16 @@ export default new GraphQLObjectType({
     },
     allThreads: {
       type: new GraphQLList(ThreadType),
-      resolve: (root, args, { loaders }) => loaders.post.loadMany(root.board)
+      resolve: (root, args, { loaders: { threadLoader } }) =>
+        threadLoader.loadMany(root)
     },
     thread: {
       type: ThreadType,
       args: {
         id: { type: GraphQLID }
       },
-      resolve: (root, args, { loaders }) => loaders.post.loadMany(root.board)
+      resolve: (root, args, { loaders: { threadLoader } }) =>
+        threadLoader.load(args.id)
     }
   })
 });
