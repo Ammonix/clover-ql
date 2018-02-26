@@ -168,6 +168,11 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       resolve: post => post.semantic_url
     },
+    absoluteFilePath: {
+      type: GraphQLString,
+      resolve: (root, args, { loaders: { postLoader } }) =>
+        `https://i.4cdn.org/${root.boardId}/${root.tim}${root.ext}`
+    },
     since4pass: {
       type: GraphQLInt,
       description: "Year 4chan Pass bought, 4 digit year (YYYY)",
